@@ -13,13 +13,12 @@ volumes:
     driver: local
 
 services:
-  openremotemanagegatewayapi:
-    image: openremotemanagegatewayapi
-    depends_on:
-      - otel-collector
+  openremotemanagegatewayapi: 
     build:
       context: .
       dockerfile: src/OpenRemoteManage.GatewayAPI/Dockerfile
+    depends_on:
+      - otel-collector
     ports:
       - 5131:5131
     environment:
